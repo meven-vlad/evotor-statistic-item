@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+
+    apache:
+        container_name: evotor-apache
+        build: ./docker-assets/php
+        volumes:
+            - .:/var/www/html
+            - ./docker-assets/php/httpd.conf:/etc/apache2/sites-available/default-ssl.conf
+            - ./docker-assets/php/default.conf:/etc/apache2/sites-available/000-default.conf
+            - ./docker-assets/php/php.ini:/usr/local/etc/php/conf.d/local.ini
+        ports:
+            - 8080:80
+            - 443:443

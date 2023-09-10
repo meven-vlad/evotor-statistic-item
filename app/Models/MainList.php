@@ -10,7 +10,7 @@ class MainList extends Model
     use HasFactory;
 
     protected $table = 'main_list';
-    
+
     protected $fillable = [
         'shop',
         'name',
@@ -19,10 +19,15 @@ class MainList extends Model
         'productid',
         'summ',
     ];
-    
+
     public function shopname()
     {
         return $this->hasOne(Shops::class, 'uuid', 'shop');
+    }
+
+    public function elem()
+    {
+        return $this->hasOne(Products::class, 'name', 'name');
     }
 
 }

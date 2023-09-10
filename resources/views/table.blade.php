@@ -19,6 +19,26 @@
                     @endforeach
                 </div>
             </ul>
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Фильтр</button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <form action="" class="mb-3">
+                                    <select class="mb-1 w-100" name="cats[]" class="form-select" multiple aria-label="Multiple select example">
+                                        <?php foreach ($filter['categories'] as $categories):?>
+                                        <option value="<?=$categories->id?>" <?=($categories['active'] == 1 ? 'selected' : '')?>><?=$categories->name?></option>
+                                        <?php endforeach;?>
+                                    </select>
+                                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             <div class="tab-content" id="nav-tabContent">
                 @foreach ($shops as $shop=>$d)
                     <div class="tab-pane fade" id="shop{{$shopslist[$shop]}}" role="tabpanel" tabindex="0">

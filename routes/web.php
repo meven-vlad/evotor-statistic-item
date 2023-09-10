@@ -20,3 +20,4 @@ Route::any('/rest/api', [App\Http\Controllers\Token::class, 'index']);
 Route::any('/rest/chek', [App\Http\Controllers\Info::class, 'getCheck']);
 Route::get('/all', [App\Http\Controllers\Main::class, 'index']);
 Route::get('/info', [App\Http\Controllers\Info::class, 'index']);
+Route::get('/productsupdate', [App\Http\Controllers\Products::class, 'index']);
